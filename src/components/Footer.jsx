@@ -1,14 +1,25 @@
 import React from 'react'
 import assets from '../assets/assets'
+import {motion} from 'motion/react'
 
 const Footer = ({theme}) => {
   return (
-    <div className='bg-slate-50 dark:bg-gray-900 pt-10 sm:pt-10 mt-20 sm:mt-40 px-4 sm:px-10 lg:px-24 xl:px-40'>
+    <motion.div 
+    initial={{opacity: 0, y: 50}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{duration: 0.8 }}
+        viewport={{once: true}}
+     className='bg-slate-50 dark:bg-gray-900 pt-10 sm:pt-10 mt-20 sm:mt-40 px-4 sm:px-10 lg:px-24 xl:px-40'>
         {/* footer top */}
 
         <div className='flex justify-between lg:items-center max-lg:flex-col gap-10'>
             {/* left bar */}
-            <div className='space-y-5 text-sm text-gray-700 dark:text-gray-400'>
+            <motion.div 
+            initial={{opacity: 0, y: 20}}
+        whileInView={{opacity: 1, y: 0}}
+        transition={{duration: 0.5, delay:0.7}}
+        viewport={{once: true}}
+            className='space-y-5 text-sm text-gray-700 dark:text-gray-400'>
                 <img src={theme === 'dark' ? assets.logo_dark : assets.logo} className='w-32 sm:w-44' />
                 <p className='max-w-md'>From strategy to execution, we craft digital solutions that move your business forward.</p>
 
@@ -19,7 +30,7 @@ const Footer = ({theme}) => {
                     <li><a className='hover:text-primary' href="#contct-us">Contact Us</a></li>
 
                 </ul>
-            </div>
+            </motion.div>
             {/* Right bar */}
             <div className='text-gray-600 dark:text-gray-400'>
                 <h3 className='font-semibold'>Subscribe to our newsletter</h3>
@@ -45,7 +56,7 @@ const Footer = ({theme}) => {
             </div>
         </div>
       
-    </div>
+    </motion.div>
   )
 }
 
